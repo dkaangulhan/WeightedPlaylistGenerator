@@ -1,3 +1,4 @@
+import { Carousel } from "./carousel";
 import { GenerateRandom } from "./util"
 import { edit_mode } from "./util"
 import { OpenEditPanel } from "./util";
@@ -69,8 +70,8 @@ export function Generate() {
 
 
     if (highest_weight / weight_total <= 0.5 && item_created > 0) {
-        new Geneartor(generate_panel_item_count, weight_total_begin_value, 10000);
-        new Geneartor(generate_panel_item_count, weight_total_begin_value, 1, true);
+        new Generator(generate_panel_item_count, weight_total_begin_value, 10000);
+        new Generator(generate_panel_item_count, weight_total_begin_value, 1, true);
         alert("Created..");
     }
     else {
@@ -80,10 +81,11 @@ export function Generate() {
 }
 
 //This class is used for creating playlist using created_items array which contain weighted playlist items
-class Geneartor {
+export class Generator {
     item_list = [];
     playlist_length;
     weight_total;
+    static current_generator;
 
     //create_dom parameter is for if the list items will be created on screen
     constructor(playlist_length, weight_total, test_count = 1, create_dom = false) {
@@ -105,7 +107,22 @@ class Geneartor {
                 created_items[t].itemCreated = 0;
             }
 
-            this.item_list = [];
+            Generator.current_generator = this;
+            if (!create_dom)
+                this.item_list = [];
+            else {
+                var img1 = document.getElementById("carousel_img1");
+                var img2 = document.getElementById("carousel_img2");
+                var img3 = document.getElementById("carousel_img3");
+
+                var item_list_length = this.item_list.length;
+
+                Carousel.carousel.current_row = 0;//When new playlist is created, current_row of carousel is set as 0
+
+                img1.src = Generator.current_generator.item_list[(item_list_length + Carousel.carousel.current_row - 1) % item_list_length].src;
+                img2.src = Generator.current_generator.item_list[Carousel.carousel.current_row].src;
+                img3.src = Generator.current_generator.item_list[(Carousel.carousel.current_row + 1) % item_list_length].src;
+            }
         }
 
         console.log("Total elements created: " + (playlist_length * test_count));
@@ -114,6 +131,7 @@ class Geneartor {
             console.log(test_items[i].domObject.id + "--> Weight: " + (test_items[i].weight / this.weight_total) + " Result Weight: " + (test_items[i].itemCreated / (playlist_length * test_count)));
         }
         console.log("---------------------------------");
+
     }
 
     //This method is called on constructor to create weighted playlist's DOM elements and fills the playlist

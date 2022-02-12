@@ -3,7 +3,8 @@
 
 <head>
     <title>WPG</title>
-    <link rel="stylesheet" href="C:\\Users\\bobil\\Desktop\\WeightedPlaylistGenerator\\index.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./carousel.css">
     </link>
 </head>
 
@@ -83,9 +84,34 @@
 
                 </ul>
             </div>
+
+            <div id="presentation_carousel">
+                <button id="carousel_left_button"
+                    style="left: 8%;" class="carousel_navigation_button button_hover">
+                    <a><</a>
+                </button>
+
+                <button id="carousel_right_button"
+                    style="right: 8%;" class="carousel_navigation_button button_hover">
+                    <a>></a>
+                </button>
+
+                <div id="carousel_images">
+                    <img id="carousel_img1" draggable="false"
+                        src="https://avatars.mds.yandex.net/i?id=87e2db08e89941d2660511e65377d8ab-5340121-images-thumbs&n=13"
+                        style="left: -100%;">
+                    <img id="carousel_img2" draggable="false"
+                        src="https://avatars.mds.yandex.net/i?id=38d3d3d24f5cf1dfeccbc8c3c3875532-4495103-images-thumbs&n=13">
+                    <img id="carousel_img3" draggable="false"
+                        src="https://avatars.mds.yandex.net/i?id=9965461c305aaf0e115d2f58d49d198a-5714596-images-thumbs&n=13"
+                        style="left: 100%;">
+                </div>
+                <div style="text-align: center;"><a id="carousel_playlist_element"></a></div>
+            </div>
+
             <div id="presentation_selection">
-                <button class="button_hover">L</button>
-                <button class="button_hover">C</button>
+                <button id="presentation_list_button" class="button_hover">L</button>
+                <button id="presentation_carousel_button" class="button_hover">C</button>
             </div>
         </div>
     </div>
