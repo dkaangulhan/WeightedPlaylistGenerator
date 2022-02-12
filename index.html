@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WPG</title>
+    <link rel="stylesheet" href="C:\\Users\\bobil\\Desktop\\WeightedPlaylistGenerator\\index.css">
+    </link>
+</head>
+
+<body>
+    <div id="main_div">
+        <div id="generator_page" style="width:100%; height: 100%;">
+            <div id="generate_panel">
+                <div id="generate_panel_box">
+                    <div style="font-family:Verdana; text-align:center; font-size: 17pt;"><a>Playlist Length:</a> <input
+                            id="generate_panel_item_count" type="number" style="width: 5vw; height: 7vh;" value="0">
+                        <a style="display:block; font-size:8pt; text-align: center;">(How many items will be in
+                            playlist)</a>
+                    </div>
+                    <div style="width:100%; height: 30%; position: absolute; bottom:5px; text-align: center;">
+                        <button id="generate_button"
+                            style="width: 20%; height:2.5vw; border: 1px solid silver; font-size:10pt; "
+                            class="button_hover button_green">Generate
+                        </button>
+                        <button id="close_generate_box_button"
+                            style="width: 2.5vw; height:2.5vw; border: 1px solid silver; font-size:10pt;"
+                            class="button_hover button_red">X
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="item_edit_panel">
+                <div id="edit_box">
+                    <a style="display:block;border-bottom: 1px solid rgba(128, 128, 128, 0.479);font-size: 15pt;">Edit/Add
+                        Item</a>
+                    <!--<input type="range" min="0" max="10" value="3"/>-->
+                    <div id="edit_box_mid">
+                        <a>NAME</a>
+                        <br />
+                        <input id="item_name" placeholder="ITEM NAME" class="edit_box_input" />
+                        <br />
+                        <a>SRC</a>
+                        <br />
+                        <input id="item_src" placeholder="URL" class="edit_box_input" />
+                        <br />
+                        <a>WEIGHT</a>
+                        <br />
+                        <div style="width:100%; height:auto; position: relative;">
+                            <input id="item_weight" type="range" min="1" max="10" value="1" class="edit_box_input" />
+                            <a id="weight_text" style="display:inline-block; ">1</a>
+                        </div>
+                        <br />
+                        <div style="width:100%; height:25%; margin-top:5%; ">
+                            <button id="add_item_button" style="float: left;"
+                                class="edit_box_button button_hover button_green">Add</button>
+                            <button id="close_edit_panel_button" style="float: right;"
+                                class="edit_box_button button_hover button_red">Cancel</button>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <a style="display: block;text-align: center;font-size: 17pt;">Weighted Playlist Generator</a>
+            <div id="generator">
+                <div id="generator_header">
+                    <button id="open_edit_panel_button" style="background-color: rgb(240, 240, 45);"
+                        class="generator_button button_hover">Add Item
+                    </button>
+                    <button id="open_generator_panel_button" style="background-color: rgb(45, 240, 71);"
+                        class="generator_button button_hover">Generator
+                    </button>
+                </div>
+                <div id="generator_list">
+                    <ul id="generated_item_list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="presentation_page">
+            <button id="presentation_turn_edit" class="button_hover">Turn to edit page</button>
+            <div id="presentation_list">
+                <ul id="presentation_ul">
+
+                </ul>
+            </div>
+            <div id="presentation_selection">
+                <button class="button_hover">L</button>
+                <button class="button_hover">C</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./dist/main.js"></script>
+
+</html>
