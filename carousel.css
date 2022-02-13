@@ -35,3 +35,44 @@
     border: 1px solid silver;
     top: calc(calc(60vh - 3vw) / 2);
 }
+
+#carousel_page_indicator{
+    width: 25%;
+    height: 1%;
+    position: absolute;
+    bottom: -5%;
+    left: 37.5%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+@keyframes background_increase {
+    0%{
+        background-size: 0% 100%;
+    }
+    100%{
+        background-size: 101% 100%;
+    }
+}
+
+@keyframes background_decrease {
+    0%{
+        background-size: 101% 100%;
+    }
+    100%{
+        background-size: 0% 100%;
+    }
+}
+
+.page_indicator{
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    background: url('./icons/white.png'), #858585;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+
+    animation-duration: 0.1s;
+    animation-direction:normal;
+    animation-fill-mode: forwards;
+}

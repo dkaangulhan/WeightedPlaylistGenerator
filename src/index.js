@@ -17,33 +17,33 @@ document.getElementById("presentation_turn_edit").onclick = function () {
     document.getElementById("generator_page").style.display = "block";
     document.getElementById("presentation_page").style.display = "none";
 };
-document.getElementById("presentation_list_button").onclick = function () { 
+document.getElementById("presentation_list_button").onclick = function () {
     document.getElementById("presentation_list").style.display = "block";
     document.getElementById("presentation_carousel").style.display = "none";
 };
-document.getElementById("presentation_carousel_button").onclick = function () { 
+document.getElementById("presentation_carousel_button").onclick = function () {
     document.getElementById("presentation_carousel").style.display = "block";
     document.getElementById("presentation_list").style.display = "none";
 };
 
-document.getElementById("carousel_img1").onmousedown = function(e){
-    Carousel.carousel.Click(document.getElementById("carousel_img1"),e);
+document.getElementById("carousel_img1").onmousedown = function (event) {
+    Carousel.carousel.Click(document.getElementById("carousel_img1"), event);
 };
 
-document.getElementById("carousel_img2").onmousedown = function(e){
-    Carousel.carousel.Click(document.getElementById("carousel_img2"), e);
+document.getElementById("carousel_img2").onmousedown = function (event) {
+    Carousel.carousel.Click(document.getElementById("carousel_img2"), event);
 };
 
-document.getElementById("carousel_img3").onmousedown = function(e){
-    Carousel.carousel.Click(document.getElementById("carousel_img3"), e);
+document.getElementById("carousel_img3").onmousedown = function (event) {
+    Carousel.carousel.Click(document.getElementById("carousel_img3"), event);
 };
 
-document.getElementById("carousel_left_button").onclick = function(e){
-    Carousel.carousel.Animate('left', e);
+document.getElementById("carousel_left_button").onclick = function () {
+    Carousel.carousel.Animate('left');
 };
 
-document.getElementById("carousel_right_button").onclick = function(e){
-    Carousel.carousel.Animate('right', e);
+document.getElementById("carousel_right_button").onclick = function () {
+    Carousel.carousel.Animate('right');
 };
 
 new Carousel();

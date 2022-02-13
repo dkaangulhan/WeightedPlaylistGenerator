@@ -70,9 +70,8 @@ export function Generate() {
 
 
     if (highest_weight / weight_total <= 0.5 && item_created > 0) {
-        new Generator(generate_panel_item_count, weight_total_begin_value, 10000);
-        new Generator(generate_panel_item_count, weight_total_begin_value, 1, true);
-        alert("Created..");
+        new Generator(generate_panel_item_count, weight_total_begin_value, 10000);//Test cases
+        new Generator(generate_panel_item_count, weight_total_begin_value, 1, true);//Demonstration
     }
     else {
         alert("Playlist couldn't be generated because of the inappropriate weight selection!");
@@ -145,8 +144,9 @@ export class Generator {
         }
 
         var last_created_item = null;//This is for keeping the last created item in order not to create the same element consecutively
-        for (var i = 0; i < this.playlist_length; i++) {
-            var rand = GenerateRandom(0, probabilties.length);
+        var rand = GenerateRandom(0, probabilties.length);
+        for (var i = 0; i < this.playlist_length - 1; i++) {
+            
             while (probabilties[rand].domObject == last_created_item) {
                 rand = GenerateRandom(0, probabilties.length);
             }
@@ -154,6 +154,13 @@ export class Generator {
             last_created_item = probabilties[rand].domObject;
             probabilties[rand].itemCreated++;
         }
+        rand = GenerateRandom(0, probabilties.length);
+        while (probabilties[rand].domObject == last_created_item || probabilties[rand].domObject == this.item_list[0].domObject) {
+            rand = GenerateRandom(0, probabilties.length);
+        }
+        this.item_list.push(probabilties[rand]);
+        probabilties[rand].itemCreated++;
+
 
         var lowers = [];//lowers array keeps the items that are created less than given weight
         var highers = [];//highers array keeps the items that are created more than given weight

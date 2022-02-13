@@ -186,12 +186,31 @@ li a{
 }
 
 #presentation_selection button{
-    width: 8vh;
-    height: 8vh;
-    border: 1px solid silver;
+    width: 5vh;
+    height: 5vh;
+    border: 0;
+    margin-right: 3px;
     border-radius: 3px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100%;
+    background-position: center;
     box-sizing: border-box;
 }
+
+#presentation_selection button:hover{
+    box-shadow: 0 0 7px gray;
+}
+
+#presentation_list_button{
+    background: url('./icons/list.svg');
+    background-position: center;
+}
+
+#presentation_carousel_button{
+    background: url('./icons/layout-three-columns.svg');
+}
+
 
 #presentation_turn_edit{
     width: 10vw;
